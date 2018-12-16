@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TV Search</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="TV Search ITC">
+        <meta name="keywords" content="tv shows, search">
+        <link href="https://fonts.googleapis.com/css?family=Cairo|Righteous" rel="stylesheet">
+        <link href="/css/tv.css?v={{version}}" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    </head>
+    <body>
+        <div class="page">
+            <header class="shadowed">
+                <div id="divider" class="shadowed animated-height">
+                    <img class="logo clickable" src="/images/tvlogo.png" />
+                </div>
+                <nav class="clickable" ><a href="/">Home</a></nav>
+                <nav class="clickable" ><a href="/browse">Browse</a></nav>
+                <nav class="clickable" ><a href="/search">Search</a></nav>
+            </header>
+            <main class="page-content">
+                <section id="dynamic">
+                    % include(sectionTemplate, result=sectionData)
+                </section>
+            </main>
+        </div>
+        <script src="/js/browse.js?v={{version}}"></script>
+    </body>
+</html>

@@ -1,0 +1,294 @@
+html, body{
+    margin:0px;
+    font-family:Arial;
+    overflow: hidden;
+}
+
+a{
+    color:white;
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+    padding:0px;
+    margin:0px;
+}
+
+[onclick], .clickable{
+    cursor: pointer;
+}
+
+.shadowed{
+    -webkit-box-shadow: 10px 10px 35px -13px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 35px -13px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 35px -13px rgba(0,0,0,0.75);
+}
+
+.page{
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    background-color:#9370DB;
+    font-family: 'Righteous';
+    font-size:22px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 3px solid white;
+    box-sizing: border-box;
+    z-index:1;
+    position: relative;
+}
+
+header nav{
+    color: white;
+    background-color: rgba(0,0,0,0.2);
+    width: 70px;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+header nav:hover{
+    background-color: rgba(255,255,255,0.4);
+}
+
+main{
+    position: relative;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 43px);
+    background-color: #333;
+}
+
+section{
+    width: 100%;
+    overflow: auto;
+    height: auto;
+    text-align: left;
+    padding: 20px;
+    color: white;
+}
+
+section h1{
+    font-family: 'Cairo';
+    font-size: 40px;
+    margin-top: 0px;
+    line-height: 40px;
+}
+
+section h2{
+    margin-top: 0px;
+    font-size: 16px;
+    font-family: Cairo;
+}
+
+section p{
+    max-width: 50%;
+}
+
+.logo{
+    width: 90px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding: 20px;
+}
+
+#divider{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #9370DB;
+    text-align: center;
+    z-index: 12345678;
+    height: 75px;
+    position: absolute;
+    top: 100%;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border: 3px solid white;
+    border-top: 3px solid #9370DB;
+    box-sizing: border-box;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#dynamic.loading{
+    background-image: url(/images/loading.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:100px;
+}
+
+
+/*************************************
+
+BROWSE
+
+*************************************/
+.browse{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.browse article{
+    position:relative;
+    margin: 10px;
+    border: 2px solid white;
+    background-color: black;
+    text-align: center;
+}
+
+.browse article:hover .show-cover{
+    transform: scale(1.5)
+}
+
+.browse .cover-holder{
+    height: 270px;
+    overflow: hidden;
+}
+
+.browse .show-cover {
+    width: 200px;
+    transition-property: transform;
+    transition-duration: 5s;
+}
+
+
+.browse .rating {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 7px;
+    background-color: white;
+    color: orange;
+    z-index:12;
+}
+
+.browse .rating .average{
+    vertical-align: middle;
+}
+
+.browse .rating .fa-star{
+    margin-right:4px;
+}
+
+/*************************************
+
+SHOW
+
+*************************************/
+
+.show{
+    display:flex;
+    flex-direction: column;
+}
+
+.show article{
+    margin: 10px;
+    border: 2px solid white;
+    background-color: black;
+    text-align: center;
+    width: 200px;
+    transition: box-shadow 0.5s linear;
+}
+
+.show article:hover{
+    opacity: 1;
+    -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+}
+
+.show article:hover .show-name{
+    opacity:1;
+}
+
+.show-name{
+    opacity:0.5;
+    transition:opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.show .cover-holder{
+    height: 120px;
+    overflow: hidden;
+}
+
+.show .show-cover {
+    width: 200px;
+    transition-property: transform;
+    transition-duration: 5s;
+}
+
+
+.show .season{
+    display:flex;
+    flex-wrap: wrap;
+ }
+
+.show .season-title{
+  flex:1;
+  min-width:100%;
+}
+
+.show .season-title:not(.shown) ~ article{
+    display:none;
+}
+
+.show .show-name {
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.show .fa-film{
+    margin-right: 15px;
+}
+
+/*************************************
+
+EPISODE
+
+*************************************/
+.episode img{
+    width:400px;
+}
+
+/*************************************
+
+Search
+
+*************************************/
+.search-btn{
+    background-color: #9370DB;
+    font-family: 'Righteous';
+    color: white;
+    padding: 5px 20px;
+    vertical-align: bottom;
+    margin-left: -5px;
+    border: 2px solid white;
+    box-sizing: border-box;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    font-size: 18px;
+}
+
+.search-field{
+    font-family: Arial;
+    font-size: 26px;
+}
+
+.search-results{
+    display:inline-block;
+}
+
+.search-result{
+    font-weight: 100;
+    color: rgba(255,255,255,0.7);
+    margin-top: 5px;
+}
