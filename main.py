@@ -7,10 +7,16 @@ import json
 
 @post('/search')
 def search_result():
-    sectionTemplate = "./templates/search_result.tpl"
-    query = request.forms.get("q")
-    results = utils.getResults(query)
-    return template("./pages/index.html", version=utils.getVersion(), sectionTemplate=sectionTemplate, sectionData={}, results=results, query=query)
+    search_value = request.forms.get("q")
+    results = utils.search_result(search_value)
+    return template(
+        "./pages/index.html",
+        version=utils.getVersion(),
+        sectionTemplate='./templates/search_result.tpl',
+        sectionData=search_value,
+        query=search_value,
+        results=results
+    )
 
 
 @get('/search')
@@ -50,7 +56,7 @@ def show_episode(showId, episodeId):
 @get('/browse')
 def browse():
     sectionTemplate = "./templates/browse.tpl"
-    return template("./pages/index.html", version=utils.getVersion(), sectionTemplate=sectionTemplate, sectionData=sorted(utils.showData(), key=lambda show: show["name"]))
+    return template("./pages/index.html", version=utils.getVersion(), sectionTemplate=sectionTemplate, sectionData=sorted(utils.showData(utils.AVAILABE_SHOWS), key=lambda show: show["name"]))
 
 
 @get("/js/<filepath:re:.*\.js>")
