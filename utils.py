@@ -40,7 +40,4 @@ def get_results(search_value):
             if (search_value.lower() in episode['name'].lower() or search_value.lower() in show['name'].lower()):
                 results.append(
                     {'showid': show['id'], 'episodeid': episode['id'], 'text': f"{show['name']}: {episode['name']}"})
-            elif episode['summary'] and (search_value.lower() in episode['summary'].lower()):
-                results.append(
-                    {'showid': show['id'], 'episodeid': episode['id'], 'text': f"{show['name']}: {episode['name']}"})
     return results
