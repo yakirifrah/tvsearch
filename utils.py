@@ -37,8 +37,6 @@ def get_results(search_value):
     results = []
     for show in shows:
         for episode in show["_embedded"]["episodes"]:
-            if search_value.lower() in shows[0]["name"].lower():
-                print(f'res:true')
             if (search_value.lower() in episode['name'].lower() or search_value.lower() in show['name'].lower()):
                 results.append(
                     {'showid': show['id'], 'episodeid': episode['id'], 'text': f"{show['name']}: {episode['name']}"})
