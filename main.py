@@ -4,6 +4,7 @@ from bottle import (get, post, redirect, request, route, run, static_file,
                     template, redirect, error)
 from utils import get_results, get_version, get_json_from_file, get_data, get_episode, AVAILABE_SHOWS
 import json
+from sys import argv
 
 
 @post('/search')
@@ -118,5 +119,4 @@ def error404(error):
     )
 
 
-run(host='localhost', port=os.environ.get(
-    'PORT', 5000), reloader=True, debug=True)
+run(host='0.0.0.0', port=argv[1])
